@@ -25,4 +25,5 @@ fi
 lock "$LOCK_DIR" "network"
 
 #the final rsync command
-$RSYNC $NETWORK_OPT $NETWORK_SRC $NETWORK_TRG
+set -x
+$RSYNC "${NETWORK_OPT_EXCEPT_AUTH[@]}" "${NETWORK_AUTH_OPT[@]}" $NETWORK_SRC $NETWORK_TRG
